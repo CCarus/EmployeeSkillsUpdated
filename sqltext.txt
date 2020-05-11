@@ -1,0 +1,45 @@
+
+BEGIN TRANSACTION;
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+CREATE TABLE employee (
+employee_id uuid DEFAULT uuid_generate_v4 () PRIMARY KEY,
+first_name VARCHAR NOT NULL,
+last_name VARCHAR NOT NULL,
+company_email VARCHAR NOT NULL,
+birth_date VARCHAR NOT NULL,
+hire_date VARCHAR NOT NULL,
+employee_role VARCHAR NOT NULL
+);
+COMMIT TRANSACTION;
+
+
+CREATE TABLE employee_address (
+address_id uuid DEFAULT uuid_generate_v4 () PRIMARY KEY,
+employee_id uuid,
+street VARCHAR NOT NULL,
+city VARCHAR NOT NULL,
+region VARCHAR NOT NULL,
+postal VARCHAR NOT NULL,
+country CHAR (2)
+);
+
+
+CREATE TABLE business_unit (
+business_unit_id UUID DEFAULT uuid_generate_v4 () PRIMARY KEY,
+employee_id uuid,
+name VARCHAR NOT NULL,
+description VARCHAR,
+manager_id UUID,
+subordinate_id UUID);
+
+
+CREATE TABLE field(
+field_id uuid DEFAULT uuid_generate_v4 () PRIMARY KEY,
+field_name VARCHAR(80) NOT NULL,
+type_of_technical_field VARCHAR(50) NOT NULL);
+
+
+BEGIN TRANSACTION;
+
+CREATE TABLE Skills (
+skill_id uuid DEFAULT uuid_generate_v4 () PRIMARY KEY,
