@@ -59,6 +59,19 @@ public class JdbcFieldDao implements FieldDao {
 		
 		return field;
 	}
+
+	@Override
+	public Field getFieldID(UUID fieldId) {
+		Field field = new Field();
+		String sql = "SELECT field_id WHERE field_id = ?";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, fieldId);
+		  while(results.next()){
+			  field.getFieldID();
+			  field.getFieldName();
+			  field.getTypeOfTechnicalField();
+		  }
+		return field;
+	}
 	 
 	 
 }

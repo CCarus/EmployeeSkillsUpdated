@@ -1,16 +1,20 @@
 <template>
 <div id='main'>
 
-  Selected Employee:
+  <h2>Selected Employee:
 
- {{employee.firstName + ""}} {{employee.lastName}}<br>
+ {{employee.firstName + ""}} {{employee.lastName}}<br> </h2>
         
     <div class='Skill-info' v-for='skill in skills' :key='skill.skillID'>
 
-      SkillID: {{skill.skillID}} <br>
-      FieldID: {{skill.fieldID}} <br>
-      Experience: {{skill.experience}} <br>
-      Summary: {{skill.summary}}
+    <p> SkillID: {{skill.skillID}} </p> <br>
+    <p> FieldID: {{skill.fieldID}} </p>
+    <ul class = 'field-info'>
+    <li> Skill: {{skill.field.name}} </li>
+    <li> Type: {{skill.field.type}} </li>
+    </ul>
+    <p> Experience: {{skill.experience}} months </p>  <br>
+     <p> Summary: {{skill.summary}}</p>
       
   
     </div>
@@ -25,7 +29,8 @@ export default {
         
         return {
            employee: {},
-            skills: {}
+            skills: {},
+            field: {}
               
     }
     },
