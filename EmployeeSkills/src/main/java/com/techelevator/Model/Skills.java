@@ -8,7 +8,7 @@ public class Skills {
 	private UUID fieldID;
 	private int experience;
 	private String summary;
-	private Field field;
+
 
 	public Skills() {
 
@@ -46,11 +46,5 @@ public class Skills {
 		this.summary = summary;
 	}
 
-	public void setField(Field field) {
-		this.field = field;
-	}
+		}
 
-	public Field getField() {
-		return field;
-	}
-}

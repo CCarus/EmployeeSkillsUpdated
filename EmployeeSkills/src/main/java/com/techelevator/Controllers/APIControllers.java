@@ -31,8 +31,7 @@ public class APIControllers {
 	@Autowired
 	private EmployeeDao employeeDAO;
 
-	@Autowired
-	private SkillsDao skillsDao;
+
 
 	@GetMapping("/employees")
 	public List<Employee> displayAllEmployees() {
