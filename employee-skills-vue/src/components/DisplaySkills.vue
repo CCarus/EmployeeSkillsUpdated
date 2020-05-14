@@ -2,6 +2,7 @@
 <div id='main'>
 
   Selected Employee:
+
  {{employee.firstName + ""}} {{employee.lastName}}<br>
         
     <div class='Skill-info' v-for='skill in skills' :key='skill.skillID'>
@@ -24,14 +25,12 @@ export default {
         
         return {
            employee: {},
-            skills: []
+            skills: {}
               
     }
     },
 
-  methods: {
-
-    getSkills() {
+   created() {
     fetch( 'http://localhost:8080/EmployeeSkills/api/skills/${empId}​')
     .then (
       (response) => {return response.json();}
@@ -43,27 +42,8 @@ export default {
         (err) => {console.error(err + 'ERROR!'); }
     )
   }
-},
-
-getEmployee(employeeID) {
-
-            fetch(`http://localhost:8080/EmployeeSkills/api/employees/${employeeID}`)
-            .then (
-                (response) => {return response.json();}
-            )
-            .then ( 
-                (employeeData) => {this.employee = employeeData;}
-            )
-            .catch(
-                (err) => {console.error(err + ' No employee found'); }
-            )
-        },
- created() {
-        console.log(this.$route.params.employeeID);
-        this.getEmployee(this.$route.params.employeeID);
-        this.getSkills(this.$route.params.employeeID);
-    }
 }
+
 
 </script>
 <style>

@@ -3,15 +3,16 @@
 <h1>All Employees </h1>
 
 
-<SearchBar v-on:employeeIDFilter="handleEmployeeIDFilter"/>
+<!--<SearchBar v-on:employeeIDFilter="handleEmployeeIDFilter"/> -->
 
     <div class='employee-info' v-for='employee in allEmployees' :key='employee.employeeID'>
-     
-        Employee First Name: {{employee.firstName}} <br>
-        Employee Last Name: {{employee.lastName}} <br>
-        Employee Email: {{employee.companyEmail}} <br>
-        Employee Date of Birth: {{employee.birthDate}} <br>
-        Employee Hire Date: {{employee.hireDate}} <br>
+
+        EmployeeID: {{employee.employeeID}} <br>     
+        First Name: {{employee.firstName}} <br>
+        Last Name: {{employee.lastName}} <br>
+        Email: {{employee.companyEmail}} <br>
+        Date of Birth: {{employee.birthDate}} <br>
+        Hire Date: {{employee.hireDate}} <br>
         Role:  {{employee.role}} <br>
 
       
@@ -25,33 +26,17 @@
 
 <script>
 
-import SearchBar from '@/components/SearchBar.vue'
+//import SearchBar from '@/components/SearchBar.vue'
 
 export default {
+
    components: {
-     SearchBar
+    // SearchBar
    },
     data() { 
         
         return { allEmployees : [],
         employeeIDFilter: ""}
-    },
-    computed:{
-      
-        filteredEmployee(){
-
-            const filteredEmployeeByID = this.allEmployees.filter((employee) => {
-                    return employee.employeeID.includes(this.employeeIDFilter);
-            });
-     
-
-            return filteredEmployeeByID;
-        }
-    },
-    methods: {
-        handleEmployeeIDFilter(search){
-            this.employeeIDFilter = search;
-        }
     },
 
   created() {
@@ -72,6 +57,9 @@ export default {
 <style>
 
   .employee-info {
+    border-style: solid;
+    border-color: grey;
+    
     padding-top:20px;
     margin: 20px;
      margin-left: auto;

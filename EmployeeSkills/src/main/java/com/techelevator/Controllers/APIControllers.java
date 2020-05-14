@@ -69,13 +69,4 @@ public class APIControllers {
 	}
 
 	
-	@GetMapping("/skills/{empId}")
-	public List<Skills> displayEmployeSkills(@PathVariable UUID empId) {
-		
-		List<Skills> employeeSkills = skillsDao.getAllSkillsByEmployeeID(empId);
-
-		return employeeSkills;
-	}
-	
-	
 }

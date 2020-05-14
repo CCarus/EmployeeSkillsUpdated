@@ -13,4 +13,9 @@ public interface FieldDao {
 
 	void removeFieldByFieldID(UUID fieldID);
 
-}
+	Field getFieldID(UUID fieldId);
+
+
+	}
+
+

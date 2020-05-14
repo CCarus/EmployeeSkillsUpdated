@@ -23,12 +23,13 @@ public class SkillsApiController {
 
 	@Autowired
 	private SkillsDao skillsDao;
-	
-//	@GetMapping("/{employeeID}​")
-//	public List<Skills> displayEmployeSkills(@PathVariable UUID employeeID) {
-//		
-//		List<Skills> employeeSkills = skillsDao.getAllSkillsByEmployeeID(employeeID);
-//
-//		return employeeSkills;
-//	}
+
+	@GetMapping("/{employeeID}​")
+	public List<Skills> displayEmployeSkills(@PathVariable UUID employeeID) {
+		
+	List<Skills> employeeSkills = skillsDao.getAllSkillsByEmployeeID(employeeID);
+
+return employeeSkills;
+
+}
 }
